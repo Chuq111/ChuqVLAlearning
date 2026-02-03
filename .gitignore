@@ -1,0 +1,15 @@
+# 排除 Python 缓存
+__pycache__/
+*.py[cod]
+
+# 排除模型权重和数据集（这些通常几十GB）
+checkpoints/
+data/
+datasets/
+*.pth
+*.ckpt
+*.bin
+.git/
+# 排除虚拟环境
+venv/
+.venv/
