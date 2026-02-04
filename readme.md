@@ -1,40 +1,38 @@
-# ChuqVLAlearning (Project Name)
-> 记录我的VLA入门之路
+# 🤖 ChuqVLAlearning
 
-
+> **记录我的 VLA (Vision-Language-Action) 入门之路**
+>
+> 本项目致力于探索大语言模型与机器人控制的结合，基于 OpenVLA 进行深度学习与实践。
 
 ---
 
-
 ## 🚀 快速上手 (Quick Start)
-### 环境要求
-PyTorch 2.2.0，torchvision 0.17.0，transformers 4.40.1，tokenizers 0.19.1，timm 0.9.10，以及flash-attn 2.5.5
 
-### 安装步骤
-\`\`\`bash
-# Create and activate conda environment
+### 📋 环境要求
+在开始之前，请确保你的系统环境满足以下版本要求：
+
+* **核心框架**: `PyTorch 2.2.0`, `torchvision 0.17.0`
+* **模型库**: `transformers 4.40.1`, `tokenizers 0.19.1`, `timm 0.9.10`
+* **加速组件**: `flash-attn 2.5.5`
+
+### 🔧 安装步骤
+执行以下命令完成开发环境的初始化：
+
+```bash
+# 1. 创建并激活 conda 环境
 conda create -n openvla python=3.10 -y
 conda activate openvla
-git clone https://github.com/openvla/openvla.git
+
+# 2. 克隆仓库与基础依赖安装
+git clone [https://github.com/openvla/openvla.git](https://github.com/openvla/openvla.git)
 cd openvla
-pip install -e . -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install -e . -i [https://pypi.tuna.tsinghua.edu.cn/simple](https://pypi.tuna.tsinghua.edu.cn/simple)
+
+# 3. 安装 PyTorch 核心组件 (推荐使用 CUDA 12.4)
 conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia -y 
-# Install Flash Attention 2 for training (https://github.com/Dao-AILab/flash-attention)
-#   =>> If you run into difficulty, try `pip cache remove flash_attn` first
+
+# 4. 安装 Flash Attention 2 (训练必备)
+# 💡 如果安装遇到困难，请先尝试运行: pip cache remove flash_attn
 pip install packaging ninja
-ninja --version; echo $?  # Verify Ninja --> should return exit code "0"
+ninja --version; echo $?  # 验证 Ninja 是否安装成功，返回 0 即可
 pip install "flash-attn==2.5.5" --no-build-isolation
-\`\`\`
-
-## 🛠️ 使用说明 (Usage)
-提供最基础的运行示例代码或命令。
-\`\`\`bash
-python scripts/generate.py --model_path ./checkpoints
-\`\`\`
-
-## 📁 目录结构 (Project Structure)
-简要说明代码组织方式。
-* `openvla/`: 核心模型代码
-* `scripts/`: 训练与推理脚本
-* `data/`: 数据预处理工具
-
