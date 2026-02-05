@@ -36,3 +36,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvi
 pip install packaging ninja
 ninja --version; echo $?  # 验证 Ninja 是否安装成功，返回 0 即可
 pip install "flash-attn==2.5.5" --no-build-isolation
+
+# 5.数据集
+由于OpenVLA-7B已经在包含BridgeData V2 数据集超集上进行了预训练，当我们再在该数据集上使用LoRA微调时能看到近乎100%的成功率。
+因此，我们将基于Open X-Embodiment（OXE）数据集中的toto 0.1.0进行微调并展现成果。
