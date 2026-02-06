@@ -38,5 +38,15 @@ ninja --version; echo $?  # 验证 Ninja 是否安装成功，返回 0 即可
 pip install "flash-attn==2.5.5" --no-build-isolation
 
 # 5.数据集
-由于OpenVLA-7B已经在包含BridgeData V2 数据集超集上进行了预训练，当我们再在该数据集上使用LoRA微调时能看到近乎100%的成功率。
-因此，我们将基于Open X-Embodiment（OXE）数据集中的toto 0.1.0进行微调并展现成果。
+# 💡由于OpenVLA-7B已经在包含BridgeData V2 数据集超集上进行了预训练，当我们再在该数据集上使用LoRA微调时能看到近乎100%的成功率。
+# 💡因此我们后面会调整参数与预训练数据集做一些区分以达到微调效果
+# Change directory to your base datasets folder
+cd <PATH TO BASE DATASETS DIR>
+
+# Download the full dataset (124 GB)
+wget -r -nH --cut-dirs=4 --reject="index.html*" https://rail.eecs.berkeley.edu/datasets/bridge_release/data/tfds/bridge_dataset/
+
+# Rename the dataset to `bridge_orig` (NOTE: Omitting this step may lead to runtime errors later)
+mv bridge_dataset bridge_orig
+
+**现在，启动训练脚本。如果你想使用不同数量的节点或GPU，可以在vla.py 中修改VLA训练配置，然后相应更改下面的和参数。--nnodes--nproc-per-node**

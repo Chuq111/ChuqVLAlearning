@@ -153,7 +153,7 @@ def finetune(cfg: FinetuneConfig) -> None:
     AutoProcessor.register(OpenVLAConfig, PrismaticProcessor)
     AutoModelForVision2Seq.register(OpenVLAConfig, OpenVLAForActionPrediction)
 
-    # Load OpenVLA Processor and Model using HF AutoClasses
+   # Load OpenVLA Processor and Model using HF AutoClasses
     processor = AutoProcessor.from_pretrained(cfg.vla_path, trust_remote_code=True)
     vla = AutoModelForVision2Seq.from_pretrained(
         cfg.vla_path,
