@@ -48,5 +48,6 @@ wget -r -nH --cut-dirs=4 --reject="index.html*" https://rail.eecs.berkeley.edu/d
 
 # Rename the dataset to `bridge_orig` (NOTE: Omitting this step may lead to runtime errors later)
 mv bridge_dataset bridge_orig
+```bash
 
 **现在，启动训练脚本。如果你想使用不同数量的节点或GPU，可以在vla.py 中修改VLA训练配置，然后相应更改下面的和参数。--nnodes--nproc-per-node**
